@@ -2,25 +2,44 @@
 '''
 Python Drill: PyDrill_shutil_module_27_idle
 Title: File Mover – Python 2.7 – IDLE
-Scenario: Your employer wants a program to move all his .txt files from one folder to another
-with the click of a click of a button. On your desktop make 2 new folders. Call one Folder A &
-the second Folder B. Create 4 random .txt files & put them in Folder A.
+Scenario: Your employer wants a program to move all his .txt files from one
+folder to another with the click of a click of a button. On your desktop make
+2 new folders. Call one Folder A & the second Folder B. Create 4 random
+.txt files & put them in Folder A.
 Plan:
 - Move the files from Folder A to Folder B.
 - Print out each file path that got moved onto the shell.
 - Upon viewing Folder A after the execution, the moved files should not be there.
 =======================================================================================================================
 '''
-#assuming files names are a and b, and txt docs are c, d, e, f.
+#drill5
 
 import shutil
+import os
 
-shutil.move('C:/Users/warbe/Desktop/a/c.txt','C:/Users/warbe/Desktop/b')
-shutil.move('C:/Users/warbe/Desktop/a/d.txt','C:/Users/warbe/Desktop/b')
-shutil.move('C:/Users/warbe/Desktop/a/e.txt','C:/Users/warbe/Desktop/b')
-shutil.move('C:/Users/warbe/Desktop/a/f.txt','C:/Users/warbe/Desktop/b')
+def file_transfer(src, des):
+    items = os.listdir(src)
+    for file_name in items :
+        if file_name.endswith(".txt"):
+            shutil.move(os.path.join(src, file_name), des)
+
+def main():
+    src = ("C:/Users/warbe/Desktop/a/")
+    des = ("C:/Users/warbe/Desktop/b/")
+    file_transfer(src, des)
+
+if __name__=='__main__':
+    main()
 
 
 
-#havent turned in yet
-#drill5
+
+
+
+
+
+
+
+
+
+
